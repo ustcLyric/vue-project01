@@ -1,4 +1,4 @@
-import SvgIcon from './SvgIcon/svgIndex.vue'
+import SvgIcon from './SvgIcon/SvgIndex.vue'
 import type {App, Component} from "vue";
 
 const allGloablComponent:{[key:string]:Component}   = {SvgIcon}
