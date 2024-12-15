@@ -1,9 +1,9 @@
 // 通过vue-router实现模版路由配置
 import {createRouter, createWebHashHistory} from "vue-router";
-import {constantRoute} from "@/router/route.ts";
+import {constantRoute} from "@/router/routes.ts";
 
 // 创建路由器
-let router = createRouter({
+const router = createRouter({
   // 路由模式 目前hash
   history: createWebHashHistory(),
   routes: constantRoute,

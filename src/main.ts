@@ -14,7 +14,7 @@ import axios from "axios";
 import router from '@/router';
 import pinia from "@/store";
 // 引入模版全局样式
-// import '@/styles/index.scss'
+import '@/styles/index.scss'
 
 // 获取应用实例
 const app = createApp(App)
@@ -34,7 +34,7 @@ app.use(gloalComponent)
 console.log(import.meta.env.NODE_ENV)
 // 测试mock
 // axios({
-//   url: '/api/user/login',
+//   url: '/api/user/login1',
 //   method: 'post',
 //   data: {
 //     username: 'admin',

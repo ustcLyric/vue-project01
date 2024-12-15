@@ -15,7 +15,7 @@
             </el-form-item>
             <el-row></el-row>
             <el-form-item>
-              <el-button class="login_buton" size="default" type="primary" @click="login">提交</el-button>
+              <el-button class="login_buton" size="default" type="primary" @click="login" :loading="loading" >提交</el-button>
               <!--              <el-button type="primary" @click="">取消</el-button>-->
             </el-form-item>
           </el-form>
@@ -28,10 +28,17 @@
 <script lang="ts" setup>
 import {User} from '@element-plus/icons-vue'
 import {Lock} from '@element-plus/icons-vue'
-import {reactive} from "vue";
+import {reactive, ref} from "vue";
 import useUserStore from "@/store/modules/user.ts";
+import {useRouter} from "vue-router";
+import {ElNotification} from "element-plus";
+const userStore = useUserStore();
 
-let userStore = useUserStore();
+const $router = useRouter()
+
+// 登陆加在
+
+let loading = ref<boolean>(false)
 
 // 收集数据
 const loginForm = reactive({
@@ -42,10 +49,27 @@ const loginForm = reactive({
 
 // 方法
 const login = async () => {
+  loading.value = true
   // 1.请求成功
-  let result = await userStore.userLogin(loginForm)
-  console.log("result:", result)
-  // 2.请求失败
+  try {
+    await userStore.userLogin(loginForm)
+    loading.value = false
+    // 编程式导航跳转到数据首页
+    $router.push({ path: '/' });
+    // 登陆成功提示登录信息
+    ElNotification({
+      type: 'success',
+      message:'登陆成功'
+    })
+  }catch (error) {
+    loading.value = false
+    // 2.请求失败
+    ElNotification({
+      type: 'error',
+      message:(error as Error).message,
+    })
+    console.log(error )
+  }
 }
 
 </script>

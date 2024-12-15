@@ -7,23 +7,23 @@
 
   </router-view>
 
-  <!--  测试sass-->
-  <!--  <div>-->
-  <!--    <h1>测试</h1>-->
-  <!--  </div>-->
+<!--    测试sass-->
+<!--    <div>-->
+<!--      <h1>测试</h1>-->
+<!--    </div>-->
 
 </template>
 
 <script lang="ts" setup>
 
-import request from "@/utils/request.ts";
-
-import {onMounted} from "vue";
+// import request from "@/utils/request.ts";
+//
+// import {onMounted} from "vue";
 
 // 组建挂载完毕即发请求
 // onMounted(() => {
 //   request({
-//     url: '/user/login',
+//     url: '/user/login1',
 //     method: 'post',
 //     data: {
 //       username: 'admin',
@@ -39,4 +39,9 @@ import {onMounted} from "vue";
 
 <style lang="scss" scoped>
 
+div{
+  h1{
+    color: $color;
+  }
+}
 </style>

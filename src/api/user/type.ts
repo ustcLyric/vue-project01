@@ -5,7 +5,8 @@ export interface UserLoginReq {
 }
 
 interface dataType {
-  token: string;
+  token?: string;
+  message?: string;
 }
 
 // 登陆接口返回的信息

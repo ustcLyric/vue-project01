@@ -30,14 +30,14 @@ export default defineConfig(({command}) => {
         '@': fileURLToPath(new URL('./src', import.meta.url))
       },
     },
-    // css: {
-    //   preprocessorOptions: {
-    //     scss: {
-    //       javascriptEnabled: true,
-    //       additionalData: '@import "./src/styles/variable.scss";',
-    //     },
-    //   },
-    // },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          javascriptEnabled: true,
+          additionalData: '@import "@/styles/variable.scss";',
+        },
+      },
+    },
   }
 
 })
