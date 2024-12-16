@@ -1,7 +1,7 @@
 <template>
   <div class="logo" v-if="setting.logoHidden">
     <img :src="setting.logo"  alt="logo">
-    <p >{{setting.title}}</p>
+    <p>{{setting.title}}</p>
   </div>
 </template>
 <script setup lang="ts">
@@ -17,7 +17,7 @@ import setting from '@/setting.ts'
   align-items: center;
   padding: 10px;
   img{
-    height: 40px;
+    height: 30px;
     width: 40px;
   }
   p{

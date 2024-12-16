@@ -3,14 +3,9 @@
   <!--  <SvgIcon color="red" height="100px" name="elxe" width="100px"></SvgIcon>-->
 
   <!--  测试 request-->
-  <router-view>
-
-  </router-view>
-
-<!--    测试sass-->
-<!--    <div>-->
-<!--      <h1>测试</h1>-->
-<!--    </div>-->
+  <div>
+    <router-view/>
+  </div>
 
 </template>
 

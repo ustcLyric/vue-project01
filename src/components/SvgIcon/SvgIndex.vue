@@ -6,7 +6,6 @@
   </svg>
 </template>
 <script setup lang="ts">
-
 // 接收父组件传来的参数
 defineProps({
   // xlink:href属性值前缀
