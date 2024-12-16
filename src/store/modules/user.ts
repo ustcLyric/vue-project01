@@ -4,7 +4,7 @@ import {defineStore} from "pinia";
 import {reqLogin, reqUserInfo} from "@/api/user";
 import type {UserInfoResp, UserLoginReq, UserLoginResp} from "@/api/user/type.ts";
 import type {UserState} from '@/store/modules/types/type'
-import {GET_TOKEN, SET_TOKEN} from "@/utils/token.ts";
+import {GET_TOKEN, REMOVE_TOKEN, SET_TOKEN} from "@/utils/token.ts";
 import {constantRoute} from "@/router/routes.ts";
 
 // 创建用户小仓库
@@ -45,13 +45,23 @@ const useUserStore = defineStore('User', {
     // 用户信息获取
     async userInfo(data: UserInfoResp) {
       // 获取用户所有信息存储
-      let userInfo = await reqUserInfo()
-      console.log('userinfo:', userInfo)
+      const result = await reqUserInfo()
+
+      if (result.code === 200) {
+          this.userInfo.userId = result.data.checkUser.userId;
+          this.userInfo.userName = result.data.checkUser.userName;
+          this.userInfo.avator = result.data.checkUser.avator;
+          return 'success'
+      }else {
+        return Promise.reject('获取用户信息失败')
+      }
     },
     removeUser() {
-      this.userInfo.userId = 0,
-        this.userInfo.userName = '',
-        this.userInfo.avator = ''
+      // 2.删除本地token信息
+        REMOVE_TOKEN()
+        this.userInfo.userId = 0;
+        this.userInfo.userName = '';
+        this.userInfo.avator = '';
     },
   },
   getters: {}

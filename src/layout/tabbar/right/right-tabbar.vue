@@ -35,8 +35,6 @@ const $router = useRouter();
 const logout = () => {
   // 1.删除userStore信息
   userStore.removeUser()
-  // 2.删除本地token信息
-  REMOVE_TOKEN()
   // 3.通知服务器token作废
 
   // 4.跳转到登陆页面

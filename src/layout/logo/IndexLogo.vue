@@ -1,11 +1,12 @@
 <template>
   <div class="logo" v-if="setting.logoHidden">
     <img :src="setting.logo"  alt="logo">
-    <p>{{setting.title}}</p>
+    <p v-if="fold ? false: true" class="whitespace-nowrap">{{setting.title}}</p>
   </div>
 </template>
 <script setup lang="ts">
 import setting from '@/setting.ts'
+defineProps(['fold'])
 </script>
 
 <style scoped lang="scss">

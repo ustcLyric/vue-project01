@@ -6,7 +6,7 @@
     </div>
     <!-- 左侧菜单  -->
     <div class="layout-slider" :class="{fold:LayoutSettingStore.fold ? true : false}">
-    <IndexLogo></IndexLogo>
+    <IndexLogo :fold="LayoutSettingStore.fold"></IndexLogo>
 <!--     滚动组件-->
       <el-scrollbar  class="scrollbar">
 <!--        菜单组件-->
