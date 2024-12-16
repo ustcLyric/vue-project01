@@ -16,6 +16,9 @@ import pinia from "@/store";
 // 引入模版全局样式
 import '@/styles/index.scss'
 
+// 引入路由鉴权
+import '@/permission.ts'
+
 // 获取应用实例
 const app = createApp(App)
 // 1.引入 element-plus插件和样式 并配置国际化

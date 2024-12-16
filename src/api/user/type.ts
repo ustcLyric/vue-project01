@@ -15,17 +15,19 @@ export interface UserLoginResp {
   data: dataType
 }
 
-interface userInfo {
-  userId: number
+export interface UserInfo {
+  userId: number,
+  userName: string,
+  avator: string
 }
 
-interface user {
-  checkUser: userInfo
+interface User {
+  checkUser: UserInfo
 }
 
 // 请求用户信息接口返回的信息
 export interface UserInfoResp {
   code: number,
-  data: user,
+  data: User,
 }
 
